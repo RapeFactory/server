@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<!-- saved from url=(0557)https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru" data-xwiki-reference="xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" data-xwiki-document="3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" data-xwiki-wiki="xwiki" data-xwiki-space="3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3)" data-xwiki-page="WebHome" data-xwiki-version="134.1" data-xwiki-rest-url="/rest/wikis/xwiki/spaces/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/spaces/Public%20API/spaces/API/spaces/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/spaces/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20(BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203)/pages/WebHome" data-xwiki-form-token="0hHxIvxOhkkY6fHr4QJ9jw" data-xwiki-user-reference="xwiki:XWiki.admakeye" data-xwiki-locale=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+                                                    <title>Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki</title>
+                                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="shortcut icon" href="https://wiki.mts.ru/resources/icons/xwiki/favicon.ico">
+        <link rel="icon" href="https://wiki.mts.ru/resources/icons/xwiki/favicon16.png" type="image/png">
+        <link rel="icon" href="https://wiki.mts.ru/resources/icons/xwiki/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="https://wiki.mts.ru/resources/icons/xwiki/favicon144.png">
+                      <link rel="alternate" type="application/x-wiki" title="Edit" href="https://wiki.mts.ru/bin/edit/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome">
+                    <link rel="canonical" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/">
+                    <meta name="revisit-after" content="7 days">
+<meta name="description" content="Запрос доступных для подключения услуг и блокировок (BP.05 версия 3)">
+<meta name="keywords" content="wiki ProductOffering">
+<meta name="rating" content="General">
+<meta name="author" content="Мария Шилова">
+<link rel="alternate" type="application/rss+xml" title="Wiki Feed RSS" href="https://wiki.mts.ru/bin/view/Main/WebRss?xpage=rdf">
+<link rel="alternate" type="application/rss+xml" title="Blog RSS Feed" href="https://wiki.mts.ru/bin/view/Blog/GlobalBlogRss?xpage=plain">
+                <link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/bootstrap-switch.min.css" type="text/css" rel="stylesheet"><link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/tree.min.css" type="text/css" rel="stylesheet"><link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/selectize.bootstrap3.css" type="text/css" rel="stylesheet">
+    <link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/drawer.min.css" rel="stylesheet" type="text/css">
+
+
+<link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/style.css" rel="stylesheet" type="text/css" media="all">
+<link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/print.css" rel="stylesheet" type="text/css" media="print">
+  <link href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/accessibility.css" rel="stylesheet" type="text/css" media="all">
+        <!--[if IE]>
+  <link href="/bin/skin/skins/flamingo/ie-all.css?skin=XWiki.DefaultSkin&#38;colorTheme=xwiki%3AFlamingoThemes.Cerulean" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/xwiki-min.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/searchSuggest.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/rating.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/xwiki.selectize.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/tags.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/comments.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/upload.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/attachments.css"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/pagination.css">
+    <link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/WebHome"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/Style"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/Settings"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/Ratings"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/FontAwesome"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/NotificationsMacro"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/NotificationsDisplayerUIX"><link rel="stylesheet" type="text/css" href="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/SharePage">
+
+    <script type="text/javascript" defer="" async="" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/piwik.js.Без названия"></script><script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/require.min.js.Без названия"></script>
+
+    <script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/prototype.js.Без названия"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/effects.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/xwiki-min.js.Без названия"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/flamingo.min.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/searchSuggest.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/hierarchy.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/tree.min.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/suggestUsersAndGroups.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/exporter.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/tags.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/comments.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/upload.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/attachments.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/history.js.Без названия" defer="defer"></script>
+
+    <script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/Settings(1)" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/TourJS" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/Ratings(1)" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/Script" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/FontAwesome(1)" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/NotificationsMacro(1)" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/NotificationsDisplayerUIX(1)" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/QuickSearchUIX" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/SharePage(1)" defer="defer"></script>
+
+
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/compatibility.js.Без названия" defer="defer"></script>
+<script type="text/javascript" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/markerScript.js.Без названия" defer="defer"></script>
+<!--[if lt IE 9]>
+    <script src="/webjars/wiki%3Axwiki/html5shiv/3.7.2/html5shiv.min.js?r=1"></script>
+    <script type="text/javascript" src="/webjars/wiki%3Axwiki/respond/1.4.2/dest/respond.min.js?r=1" defer="defer"></script>
+<![endif]-->
+<script type="text/javascript">
+// <![CDATA[
+require.config({
+  paths: {
+    'jquery': '/webjars/wiki%3Axwiki/jquery/2.2.2/jquery.min.js?r=1',
+    'bootstrap': '/webjars/wiki%3Axwiki/bootstrap/3.3.7-1/js/bootstrap.min.js?r=1',
+    'xwiki-meta': '/resources/js/xwiki/meta',
+    'xwiki-events-bridge': "/resources/js/xwiki/eventsBridge",
+    'iscroll': '/webjars/wiki%3Axwiki/iscroll/5.1.3/build/iscroll-lite.js?r=1',
+    'drawer': '/webjars/wiki%3Axwiki/drawer/2.4.0/js/jquery.drawer.min.js?r=1',
+    'deferred': "/resources/uicomponents/require/deferred"
+  },
+  shim: {
+    'bootstrap' : ['jquery'],
+    'drawer': ['jquery', 'iscroll']
+  },
+    map: {
+    '*': {
+      'jquery': 'jQueryNoConflict'
+    },
+    'jQueryNoConflict': {
+      'jquery': 'jquery'
+    },
+  }
+});
+define('jQueryNoConflict', ['jquery'], function ($) {
+    return $.noConflict();
+});
+if (Prototype.BrowserFeatures.ElementExtensions) {
+  require(['jquery', 'bootstrap'], function ($) {
+    // Fix incompatibilities between BootStrap and Prototype
+    var disablePrototypeJS = function (method, pluginsToDisable) {
+      var handler = function (event) {
+        event.target[method] = undefined;
+        setTimeout(function () {
+            delete event.target[method];
+        }, 0);
+      };
+      pluginsToDisable.each(function (plugin) {
+          $(window).on(method + '.bs.' + plugin, handler);
+      });
+    },
+    pluginsToDisable = ['collapse', 'dropdown', 'modal', 'tooltip', 'tab', 'popover'];
+    disablePrototypeJS('show', pluginsToDisable);
+    disablePrototypeJS('hide', pluginsToDisable);
+  });
+}
+require(['jquery', 'drawer'], function($) {
+  $(document).ready(function() {
+    $('body').drawer();
+  });
+});
+XWiki.webapppath = "/";
+XWiki.servletpath = "bin/";
+XWiki.contextPath = "";
+XWiki.mainWiki = "xwiki";
+// Deprecated: replaced by meta data in the HTML element
+XWiki.currentWiki = "xwiki";
+XWiki.currentSpace = "3 \u041F\u0440\u043E\u0434\u0443\u043A\u0442\u044B.Public API.API.\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0443\u0441\u043B\u0443\u0433\u0430\u043C\u0438.\u0417\u0430\u043F\u0440\u043E\u0441 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0445 \u0434\u043B\u044F \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0443\u0441\u043B\u0443\u0433 \u0438 \u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043E\u043A (BP\\.05 \u0432\u0435\u0440\u0441\u0438\u044F 3)";
+XWiki.currentPage = "WebHome";
+XWiki.editor = "";
+XWiki.viewer = "";
+XWiki.contextaction = "view";
+XWiki.skin = 'XWiki.DefaultSkin';
+XWiki.docisnew = false;
+XWiki.docsyntax = "xwiki/2.1";
+XWiki.docvariant = "";
+XWiki.blacklistedSpaces = [ "Import","Panels","Scheduler","Stats","XAppClasses","XAppSheets","XAppTemplates","XWiki","WatchCode","WatchSheets","XApp","WatchAdmin","Watch","ColorThemes","AnnotationCode" ];
+XWiki.hasEdit = false;
+XWiki.hasProgramming = false;
+XWiki.hasBackupPackImportRights = false;
+XWiki.hasRenderer = true;
+window.docviewurl = "/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/";
+window.docediturl = "/bin/edit/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome";
+window.docsaveurl = "/bin/save/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome";
+window.docgeturl = "/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome";
+// ]]>
+</script>
+
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/jquery.min.js.Без названия"></script><meta name="document" content="3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome"><meta name="wiki" content="xwiki"><meta name="space" content="3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3)"><meta name="page" content="WebHome"><meta name="version" content="134.1"><meta name="restURL" content="/rest/wikis/xwiki/spaces/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/spaces/Public%20API/spaces/API/spaces/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/spaces/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20(BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203)/pages/WebHome"><meta name="form_token" content="0hHxIvxOhkkY6fHr4QJ9jw"><meta name="language" content="ru"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="iscroll" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/iscroll-lite.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/webjars/wiki%3Axwiki/Keypress/2.1.5/keypress.min.js?r=1" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/keypress.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="xwiki-events-bridge" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/eventsBridge.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/webjars/wiki%3Axwiki/xwiki-platform-tree-webjar/10.9/require-config.min.js?evaluate=true" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/require-config.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="xwiki-selectize" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/xwiki.selectize.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/bootstrap.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="xwiki-meta" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/meta.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap-switch" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/bootstrap-switch.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="drawer" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/jquery.drawer.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tree" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/tree.min.js(1).Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="selectize" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/selectize.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="JobRunner" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/jobRunner.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tree-finder" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/finder.min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jsTree" src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/jstree.min.js.Без названия"></script></head>
+  <body id="body" class="skin-flamingo wiki-xwiki space-3_Продукты.Public_API.API.Управление_услугами.Запрос_доступных_для_подключения_услуг_и_блокировок_(BP\.05_версия_3) viewbody hideright  panel-left-width-Medium panel-right-width-Medium drawer drawer-right drawer-close">
+<div id="xwikimaincontainer">
+<div id="xwikimaincontainerinner">
+
+  <div id="menuview">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <nav class="navbar navbar-default actionmenu">
+    <div class="container-fluid">
+            <div class="navbar-header">
+                  <div id="companylogo">
+  <a href="https://wiki.mts.ru/bin/view/Main/" title="Home" rel="home" class="navbar-brand">
+    <img src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/logo-white.svg" alt="Wiki Logo">
+  </a>
+</div>
+
+              </div>
+            <div id="xwikimainmenu">
+
+          <ul class="nav navbar-nav navbar-left">
+      <li class="divider" role="separator"></li>
+              </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+        <li>
+    <a class="icon-navbar drawer-toggle" id="tmDrawerActivator" title="Drawer"><span class="sr-only">Toggle navigation</span><span class="fa fa-bars"></span></a>
+  </li>
+                  <li class="navbar-avatar">
+<a href="https://wiki.mts.ru/bin/view/XWiki/admakeye" class="icon-navbar">
+<span class="sr-only">Профиль пользователя</span>
+                                                              <img src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/ldapPhoto.jpeg" alt="Александр Макеев" title="Александр Макеев"></a>
+</li>
+
+<li class="dropdown" id="tmNotifications">
+<a class="icon-navbar dropdown-toggle" data-toggle="dropdown" role="button" title="Notifications">
+<span class="sr-only">
+Toggle navigation
+</span>
+<span class="fa fa-bell"></span>
+</a>
+<ul class="dropdown-menu">
+
+ <li>
+<div class="notifications-header">
+<div class="clearfix">
+<div class="col-xs-4">
+<p><strong>Notifications</strong></p>
+</div>
+<div class="col-xs-8 text-right">
+<p>
+<span class="notifications-header-link">
+<a href="https://wiki.mts.ru/bin/get/XWiki/Notifications/Code/NotificationRSSService?outputSyntax=plain" class="notifications-header-link" rel="nofollow external noopener noreferrer" target="_blank">
+<span class="fa fa-rss"></span>&nbsp;RSS Feed
+</a>
+</span>
+<span class="notifications-header-link">
+<a href="https://wiki.mts.ru/bin/view/XWiki/admakeye?category=notifications" class="notifications-settings" rel="nofollow">
+<span class="fa fa-cog"></span>&nbsp;Settings
+</a>
+</span>
+</p>
+</div>
+</div>
+<div class="notifications-toggles clearfix" data-enabled="false" data-original-title="" title="">
+<pre><label class="hidden" for="notificationPageOnly">Toggle Page notifications only</label><div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-id-notificationPageOnly bootstrap-switch-disabled bootstrap-switch-small" style="width: 2px;"><div class="bootstrap-switch-container" style="width: 0px; margin-left: 0px;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 0px;">ON</span><span class="bootstrap-switch-label" style="width: 0px;"><span class="fa fa-file"></span></span><span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 0px;">OFF</span><input type="checkbox" id="notificationPageOnly" name="notificationPageOnly" checked="checked" disabled=""></div></div><label class="hidden" for="notificationPageAndChildren">Toggle Page and children notifications</label><div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-id-notificationPageAndChildren bootstrap-switch-disabled bootstrap-switch-small" style="width: 2px;"><div class="bootstrap-switch-container" style="width: 0px; margin-left: 0px;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 0px;">ON</span><span class="bootstrap-switch-label" style="width: 0px;"><span class="fa fa-sitemap"></span></span><span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 0px;">OFF</span><input type="checkbox" id="notificationPageAndChildren" name="notificationPageAndChildren" checked="checked" disabled=""></div></div><label class="hidden" for="notificationWiki">Toggle Wiki notifications</label><div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-id-notificationWiki bootstrap-switch-disabled bootstrap-switch-small" style="width: 2px;"><div class="bootstrap-switch-container" style="width: 0px; margin-left: 0px;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 0px;">ON</span><span class="bootstrap-switch-label" style="width: 0px;"><span class="fa fa-globe"></span></span><span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 0px;">OFF</span><input type="checkbox" id="notificationWiki" name="notificationWiki" checked="checked" disabled=""></div></div></pre>
+</div>
+<div class="notifications-header-uix col-xs-12">
+</div>
+</div>
+<div class="notifications-area clearfix"><p class="text-center noitems">No notifications available!</p></div>
+</li>
+
+</ul>
+</li>
+                 <li>
+<form class="navbar-form globalsearch globalsearch-close form-inline" id="globalsearch" action="https://wiki.mts.ru/bin/view/Main/Search">
+<input type="text" name="text" placeholder="поиск..." id="headerglobalsearchinput" autocomplete="off">
+<button type="submit" class="btn" title="Поиск"><span class="fa fa-search"></span></button>
+</form>
+</li>
+            </ul>
+
+          </div>    </div>   </nav>
+
+
+
+
+
+
+
+<div class="drawer-main drawer-default" id="tmDrawer">
+  <nav class="drawer-nav" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                <div class="drawer-brand clearfix">
+      <a href="https://wiki.mts.ru/bin/view/XWiki/admakeye">
+                                                                  <img src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/ldapPhoto(1).jpeg" alt="Александр Макеев" title="Александр Макеев">      </a>
+      <div class="brand-links">
+                  <a href="https://wiki.mts.ru/bin/view/XWiki/admakeye" class="brand-user" id="tmUser">Александр Макеев</a>
+          <a href="https://wiki.mts.ru/bin/logout/XWiki/XWikiLogout?xredirect=%2Fbin%2Fview%2F3%2520%25D0%259F%25D1%2580%25D0%25BE%25D0%25B4%25D1%2583%25D0%25BA%25D1%2582%25D1%258B%2FPublic%2520API%2FAPI%2F%25D0%25A3%25D0%25BF%25D1%2580%25D0%25B0%25D0%25B2%25D0%25BB%25D0%25B5%25D0%25BD%25D0%25B8%25D0%25B5%2520%25D1%2583%25D1%2581%25D0%25BB%25D1%2583%25D0%25B3%25D0%25B0%25D0%25BC%25D0%25B8%2F%25D0%2597%25D0%25B0%25D0%25BF%25D1%2580%25D0%25BE%25D1%2581%2520%25D0%25B4%25D0%25BE%25D1%2581%25D1%2582%25D1%2583%25D0%25BF%25D0%25BD%25D1%258B%25D1%2585%2520%25D0%25B4%25D0%25BB%25D1%258F%2520%25D0%25BF%25D0%25BE%25D0%25B4%25D0%25BA%25D0%25BB%25D1%258E%25D1%2587%25D0%25B5%25D0%25BD%25D0%25B8%25D1%258F%2520%25D1%2583%25D1%2581%25D0%25BB%25D1%2583%25D0%25B3%2520%25D0%25B8%2520%25D0%25B1%25D0%25BB%25D0%25BE%25D0%25BA%25D0%25B8%25D1%2580%25D0%25BE%25D0%25B2%25D0%25BE%25D0%25BA%2520%2528BP.05%2520%25D0%25B2%25D0%25B5%25D1%2580%25D1%2581%25D0%25B8%25D1%258F%25203%2529%2F" id="tmLogout" rel="nofollow"><span class="fa fa-sign-out"></span> Выход</a>
+                                                          </div>
+    </div>
+
+                <ul class="drawer-menu">
+                                <li class="drawer-menu-item drawer-category-header"><hr class="hidden">Home</li>
+
+
+
+
+
+
+
+  <li class="drawer-menu-item">
+    <a href="https://wiki.mts.ru/bin/view/Main/AllDocs" id="tmWikiDocumentIndex">
+      <div class="drawer-menu-item-icon">
+        <span class="fa fa-book"></span>
+      </div>
+      <div class="drawer-menu-item-text">Перечень документов</div>
+    </a>
+  </li>
+
+
+
+
+
+
+  <li class="drawer-menu-item">
+    <a href="https://wiki.mts.ru/bin/view/Main/UserDirectory" id="tmMainUserIndex">
+      <div class="drawer-menu-item-icon">
+        <span class="fa fa-user"></span>
+      </div>
+      <div class="drawer-menu-item-text">Каталог пользователей</div>
+    </a>
+  </li>
+
+
+
+
+
+
+  <li class="drawer-menu-item">
+    <a href="https://wiki.mts.ru/bin/view/Applications/" id="tmMainApplicationIndex">
+      <div class="drawer-menu-item-icon">
+        <span class="fa fa-th"></span>
+      </div>
+      <div class="drawer-menu-item-text">Application Index</div>
+    </a>
+  </li>
+                                                    <li class="drawer-menu-item drawer-category-header"><hr class="hidden">Global</li>
+
+
+
+
+
+
+
+  <li class="drawer-menu-item">
+    <a href="https://wiki.mts.ru/bin/view/WikiManager/">
+      <div class="drawer-menu-item-icon">
+        <span class="fa fa-list-alt"></span>
+      </div>
+      <div class="drawer-menu-item-text">Перечень Вики</div>
+    </a>
+  </li>
+
+          </ul>
+  </nav>
+</div>
+
+
+
+
+
+  </div>
+ <div id="headerglobal">
+  <div id="globallinks">
+  </div>   <div class="clearfloats"></div>
+
+      <script type="text/javascript">
+var _paq = _paq || [];
+_paq.push(['setCustomVariable', 1, "user", "XWiki.admakeye", "visit"]);
+_paq.push(['setCustomVariable', 1, "user", "XWiki.admakeye", "page"]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+var u= "https://piwik.mts.ru/";
+_paq.push(['setTrackerUrl', u+'piwik.php']);
+_paq.push(['setSiteId', 2]);
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
+</script>
+
+  </div>
+
+
+<div class="contenthideright" id="contentcontainer">
+<div id="contentcontainerinner">
+<div class="leftsidecolumns">
+  <div id="contentcolumn">
+
+
+  <div class="main">
+  <div id="mainContentArea">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <ol id="hierarchy" class="breadcrumb breadcrumb-expandable" data-entity="3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" data-id="hierarchy" data-limit="5" data-treenavigation="true" data-entities="{Space xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3)=3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome}"><li class="wiki dropdown"><a href="https://wiki.mts.ru/bin/view/Main/"><span class="fa fa-home"></span></a><span class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-caret-down"></span></span><div class="dropdown-menu">                                                                                                                                                        <div class="breadcrumb-tree" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;showTranslations=false&amp;limit=10" data-draganddrop="false" data-contextmenu="false" data-icons="true" data-edges="true" data-checkboxes="false" data-opento="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" data-finder="false"></div>
+</div></li><li class="space dropdown">3 Продукты<span class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-caret-down"></span></span><div class="dropdown-menu">                                                                                                                                                        <div class="breadcrumb-tree" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;showTranslations=false&amp;limit=10&amp;root=wiki%3Axwiki" data-draganddrop="false" data-contextmenu="false" data-icons="true" data-edges="true" data-checkboxes="false" data-opento="document:xwiki:3 Продукты.WebHome" data-finder="false"></div>
+</div></li><li class="ellipsis"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#">…</a></li><li class="space dropdown"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/">API</a><span class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-caret-down"></span></span><div class="dropdown-menu">                                                                                                                                                        <div class="breadcrumb-tree" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;showTranslations=false&amp;limit=10&amp;root=document%3Axwiki%3A3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B.Public%20API.WebHome" data-draganddrop="false" data-contextmenu="false" data-icons="true" data-edges="true" data-checkboxes="false" data-opento="document:xwiki:3 Продукты.Public API.API.WebHome" data-finder="false"></div>
+</div></li><li class="space dropdown"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/">Управление услугами</a><span class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-caret-down"></span></span><div class="dropdown-menu">                                                                                                                                                        <div class="breadcrumb-tree" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;showTranslations=false&amp;limit=10&amp;root=document%3Axwiki%3A3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B.Public%20API.API.WebHome" data-draganddrop="false" data-contextmenu="false" data-icons="true" data-edges="true" data-checkboxes="false" data-opento="document:xwiki:3 Продукты.Public API.API.Управление услугами.WebHome" data-finder="false"></div>
+</div></li><li class="active space dropdown"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/">Запрос доступных для подключения услуг и блокировок (BP.05 версия 3)</a><span class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-caret-down"></span></span><div class="dropdown-menu">                                                                                                                                                        <div class="breadcrumb-tree" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;showTranslations=false&amp;limit=10&amp;root=document%3Axwiki%3A3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B.Public%20API.API.%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8.WebHome" data-draganddrop="false" data-contextmenu="false" data-icons="true" data-edges="true" data-checkboxes="false" data-opento="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" data-finder="false"></div>
+</div>      </li></ol>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="xcontent">
+  <div class="row document-header">
+  <div class="document-info col-xs-12 col-md-7">
+
+        <div id="document-title"><h1>Запрос доступных для подключения услуг и блокировок (BP.05 версия 3)</h1></div>
+          <div class="xdocLastModification">
+                  Изменил последним <span class="wikilink"><a href="https://wiki.mts.ru/bin/view/XWiki/Mgshilov">Мария Шилова</a></span> 2019/01/10 12:35
+              </div>
+      </div>
+      <div class="document-menu col-xs-12 col-md-5">
+
+
+                                          <div id="contentmenu" class="pull-right actionmenu">
+
+
+                                                  <div class="btn-group" id="tmMoreActions">
+    <a class="btn btn-default dropdown-toggle" title="More Actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+      <span class="fa fa-ellipsis-v"></span>
+          </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">Manage</li>
+
+                            <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?xpage=copy" id="tmActionCopy" title="Копировать" rel="nofollow"><span class="fa fa-copy"></span> Копировать</a></li>
+
+
+                                                    <li class="divider" role="separator"></li>
+                  <li class="dropdown-header">Actions</li>
+
+
+                                                              <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/" id="tmExport" title="Экспорт" data-toggle="modal" data-target="#exportModal"><span class="fa fa-download"></span> Экспорт</a></li>
+
+
+    <li class="tme"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#Comments" id="tmAnnotationsTrigger" title="Аннотации" rel="nofollow"><span class="fa fa-edit"></span> Аннотации</a></li>
+                                <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?xpage=print" id="tmPrintPreview" title="Предварительный просмотр" rel="nofollow"><span class="fa fa-print"></span> Предварительный просмотр</a></li>
+
+                                      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=code" id="tmViewSource" title="Посмотреть исходный текст" rel="nofollow"><span class="fa fa-search"></span> Посмотреть исходный текст</a></li>
+
+                                  <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=share" id="tmActionShare" title="Поделиться по email" rel="nofollow"><span class="fa fa-envelope-o"></span> Поделиться по email</a></li>
+
+
+
+                                                                                        <li class="divider" role="separator"></li>
+                      <li class="dropdown-header">Viewers</li>
+
+
+      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=children" id="tmChildren" title="Дочерние документы" rel="nofollow"><span class="fa fa-folder"></span> Дочерние документы</a></li>
+
+      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=comments" id="tmComment" title="Комментарии" rel="nofollow"><span class="fa fa-comment"></span> Комментарии</a></li>
+
+      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=annotations" title="Аннотации" rel="nofollow"> Аннотации</a></li>
+
+      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=attachments" id="tmAttachments" title="Вложенные файлы" rel="nofollow"><span class="fa fa-paperclip"></span> Вложенные файлы</a></li>
+
+      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=history" id="tmHistory" title="История" rel="nofollow"><span class="fa fa-clock-o"></span> История</a></li>
+
+      <li class=""><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?viewer=information" id="tmInformation" title="Информация" rel="nofollow"><span class="fa fa-info-circle"></span> Информация</a></li>
+
+<script type="text/javascript">
+      //<![CDATA[
+    /**
+     * Perform a PUT on the given REST API. If the request is successful, reload the page.
+     *
+     * We use this function in order to quickly edit the user properties for developer shortcuts.
+     * Also note that JQuery is not supported here, so we use a starndard XMLHttpRequest.
+     *
+     * @param restUrl the URL to use
+     * @param errorMessage the message to display if an error ocurred in the request
+     */
+    var developerShortcutsRestCall = function(restUrl, errorMessage) {
+        const req = new XMLHttpRequest();
+        var notification = new XWiki.widgets.Notification(
+            "Performing REST request...",
+            'inprogress');
+
+        req.onreadystatechange = function(event) {
+            if (this.readyState === XMLHttpRequest.DONE) {
+                if (this.status >= 200 && this.status < 300) {
+                    // Reload the page to apply the user modifications
+                    notification.replace(new XWiki.widgets.Notification(
+                        "REST Request successful!", 'done'));
+                    location.reload()
+                } else if (this.status == 500) {
+                    notification.replace(new XWiki.widgets.Notification(this.data, 'error'));
+                } else {
+                    notification.replace(new XWiki.widgets.Notification(errorMessage, 'error'));
+                }
+            }
+        };
+
+        req.open('PUT', restUrl, true);
+        req.send(null);
+    };
+
+    // Append developer shortcuts for toggeling userType and hiddenDocuments in the current user profile
+    shortcut.add("x+x+x+a", function() {
+        developerShortcutsRestCall("/rest/currentuser/properties/usertype/next",
+                "Unable to update the current user type");
+    }, {'type': shortcut.type.SEQUENCE, 'disable_in_input': true });
+
+    shortcut.add("x+x+x+h", function () {
+        developerShortcutsRestCall("/rest/currentuser/properties/displayHiddenDocuments/next",
+                "Unable to toggle the current user hidden documents property");
+    }, {'type': shortcut.type.SEQUENCE, 'disable_in_input': true });
+    //]]>
+  </script>
+
+
+      </ul>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="modal fade text-left" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <div class="modal-title" id="exportModalLabel">Экспорт</div>
+        </div>
+        <div class="modal-body">
+          <div class="panel-group" id="exportModelAccordion" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="exportModalHeadingOffice">
+      <div class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#exportModelAccordion" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#exportModelOfficeCollapse" aria-expanded="true" aria-controls="exportModelOfficeCollapse">
+          Office Formats
+        </a>
+      </div>
+    </div>
+    <div id="exportModelOfficeCollapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="exportModalHeadingOffice">
+      <div class="panel-body">
+        <a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/?xpage=pdfoptions&amp;qs=" class="btn btn-primary" rel="nofollow">Экспорт в PDF</a>
+                  <a href="https://wiki.mts.ru/bin/export/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?format=odt" class="btn btn-primary" rel="nofollow">Экспорт в ODT</a>
+          <a href="https://wiki.mts.ru/bin/export/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?format=rtf" class="btn btn-primary" rel="nofollow">Экспорт в RTF</a>
+                      </div>
+    </div>
+  </div>
+              <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="exportModalHeadingOther">
+      <div class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#exportModelAccordion" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#exportModelOtherCollapse" aria-expanded="false" aria-controls="exportModelOtherCollapse">
+          Other Formats
+        </a>
+      </div>
+    </div>
+    <div id="exportModelOtherCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="exportModalHeadingOther">
+      <div class="panel-body">
+                  <div class="row">
+            <div class="col-xs-6">
+              <p>Select the pages to export:</p>
+            </div>
+            <div class="col-xs-6">
+              <p class="text-right"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#" class="tree_select_all">select all</a> / <a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#" class="tree_select_none">none</a></p>
+            </div>
+          </div>
+          <div class="exportModalTreeContainer">
+                                                                                                                                                                                                                <div class="xtree jstree-no-links jstree jstree-1 jstree-xwiki jstree-xwiki-responsive jstree-checkbox-selection" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;filterHiddenDocuments=false&amp;showAttachments=false&amp;showTranslations=false&amp;root=document%3Axwiki%3A3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B.Public%20API.API.%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8.%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP%5C.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29.WebHome&amp;showRoot=true" data-draganddrop="true" data-contextmenu="true" data-icons="true" data-edges="true" data-checkboxes="true" data-opento="" data-finder="false" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" aria-busy="false"><ul class="jstree-container-ul jstree-children jstree-contextmenu" role="group"><li role="treeitem" aria-selected="true" aria-level="1" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" class="jstree-node  jstree-leaf jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor  jstree-clicked" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome_anchor"><i class="jstree-icon jstree-checkbox" role="presentation"></i><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Запрос доступных для подключения услуг и блокировок (BP.05 версия 3)</a></li></ul></div>
+          </div>
+                <a href="https://wiki.mts.ru/bin/export/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?format=html" class="btn btn-primary" rel="nofollow">Экспорт в HTML</a>
+                      </div>
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+<hr>
+
+
+        <div class="row">
+    <div id="xwikicontent" class="col-xs-12">
+              <h1 id="H41743043F44043E44143443E44144244343F43D44B44543443B44F43F43E43443A43B44E44743543D43844F44344143B44343343843143B43E43A43844043E43243E43A" class="wikigeneratedid" style="padding: 5pt; background-color: rgb(190, 235, 255);"><span>Запрос &nbsp;доступных для подключения услуг и блокировок</span></h1><div class="wikimodel-emptyline"></div><h5 id="H42543044043043A44243544043844144243843A438API" class="wikigeneratedid"><span>Характеристики API</span></h5><table><tbody><tr><th scope="col">Название характеристики</th><th scope="col">Значение</th></tr><tr><td>Проект</td><td>59234 Public API 3.0</td></tr><tr><td>Интерфейс метода</td><td><span class="wikiexternallink"><a href="https://crmapiweb02.msk.mts.ru:8243/PublicAPI/BP06/v3.0.0">https://crmapiweb02.msk.mts.ru:8243/PublicAPI/BP05/v3.0.0</a></span></td></tr><tr><td>Протокол</td><td>HTTPS (RESTful)</td></tr><tr><td>Метод</td><td>GET</td></tr><tr><td>Формат</td><td>JSON</td></tr><tr><td>Тип</td><td>Синхронный</td></tr><tr><td>Производительность&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><span class="wikiexternallink"><a href="https://wiki.mts.ru/xwiki/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2%20Public%20API/#BP02power">см. табличку</a></span></td></tr></tbody></table><h4 id="H41244543E43443D44B43543F43044043043C43544244044B2841443544243043B44C43D43E43543E43F43844143043D438435request43243F44043843A44043543F43B43543D43D43E43943443E43A44343C43543D44243044643843829" class="wikigeneratedid"><span>Входные параметры <span style="font-size:14px">(Детальное описание request в прикрепленной документации)</span></span></h4><table><tbody><tr><th style="width: 300pt;" scope="col">Название параметра</th><th scope="col">&nbsp;</th><th scope="col">Тип</th><th scope="col">Описание</th><th scope="col">Обязательный</th><th scope="col">Пример</th><td>&nbsp;</td></tr><tr><td>channel.id</td><td>Header</td><td>string</td><td>Наименование системы, выданное при регистрации в PublicAPI</td><td><strong>+</strong></td><td><strong>[system_name]</strong></td><td>&nbsp;</td></tr><tr><td>category.name</td><td>Query</td><td>string</td><td>Поле для разделения вызываемых методов</td><td><strong>+</strong></td><td>MobileConnectivity</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>marketSegment.characteristic.name</td><td>Query</td><td>&nbsp;</td><td>Маркетинговый тариф абонента</td><td><strong>+ (**)</strong></td><td>ProdOfferPurchased</td><td>&nbsp;</td></tr><tr><td>marketSegment.characteristic.value</td><td>Query</td><td>&nbsp;</td><td>Значение маркетингового тарифа абонента</td><td><strong>-</strong></td><td>[0699.1.100,0397.2.153911]</td><td>&nbsp;</td></tr><tr><td>marketSegment.characteristic.name</td><td>&nbsp;</td><td>&nbsp;</td><td>MSISDN абонента</td><td><strong>+(**)</strong></td><td>MSISDN</td><td>&nbsp;</td></tr><tr><td>marketSegment.characteristic.value</td><td>&nbsp;</td><td>&nbsp;</td><td>Значение msisdn абонента</td><td><strong>-</strong></td><td>[79000000000,79000000001]</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>productOffering.actionAllowed</td><td>Query</td><td>&nbsp;</td><td>Тип действия над продуктом</td><td><strong>+</strong></td><td>Create, Delete, Update, по умолчанию, None</td><td>&nbsp;</td></tr><tr><td>productOffering.productSpecification.productSpecificationType.name</td><td>Query</td><td>&nbsp;</td><td>Тип продукта: услуга, блокировка</td><td><strong>-</strong></td><td>[service, block]</td><td>&nbsp;</td></tr><tr><td>marketSegment.place.id</td><td>Query</td><td>&nbsp;</td><td>Код региона абонента</td><td><strong>+(**)</strong></td><td>[100, 153911]</td></tr><tr><td>fields</td><td>Query</td><td>&nbsp;</td><td><strong>Флаг</strong></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><strong>ServiceProductClassification</strong></td><td>&nbsp;</td><td>&nbsp;</td><td><div><p><strong>Флаг “Класс продукта для МПУ”</strong></p></div></td><td><strong>-</strong></td><td>&nbsp;</td></tr><tr><td><div><p>** - либо MSISDN, либо пара Регион-Тариф</p></div></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><h4 id="H" class="wikigeneratedid"><span></span></h4><h4 id="H41243E43743244043044943043543C44B43543443043D43D44B435" class="wikigeneratedid"><span>Возвращаемые данные</span></h4><table><tbody><tr><th scope="col">Название поля</th><th scope="col">Тип</th><th scope="col">Описание</th><th scope="col">Пример</th></tr><tr><td><strong>productOffering.productSpecification:</strong></td><td>&nbsp;</td><td>&nbsp;</td><td><div><p>&nbsp;</p></div></td></tr><tr><td>&nbsp;externalID</td><td>&nbsp;</td><td>Код сервисного маркетингового продукта/ Код маркетинговой услуги</td><td>"PE0005","PE0078","PE0194", "BL0005", "BL0008"</td></tr><tr><td>name</td><td>&nbsp;</td><td>Название сервисного маркетингового продукта/ Название маркетинговой услуги.</td><td>"Ежемесячная плата за тариф", "Мобильный интернет", "Международный и национальный роуминг", "Добровольная блокировка", "Первоначальная блокировка"</td></tr><tr><td>href</td><td>&nbsp;</td><td><div><p>URL описания сервисного маркетингового продукта</p></div></td><td>" " (только при тип продукта = услуга )</td></tr><tr><td>startDateTime</td><td>&nbsp;</td><td><div><p>Дата начала действия сервисного маркетингового продукта/ маркетинговой услуги.</p></div></td><td>"2018-07-04T22:19:55.000+0000"</td></tr><tr><td><div><p>ProductSpecificationType.name</p></div></td><td>&nbsp;</td><td><div><p>Тип маркетинговой услуги/ &nbsp;Тип сервисного маркетингового продукта.</p></div></td><td><div><p>"service", "block"</p></div></td></tr><tr><td>ProductCategory</td><td>&nbsp;</td><td>Код листового класса, к которому относится данное МПУ</td><td>"subscription_fee"</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><h4 id="H-1" class="wikigeneratedid"><span></span></h4><h4 id="H41F44043843C43544043743043F44043E4414302841C4304414414384324384372-44344543743043F4384414354395B43A43E43442241F2C41843443543D44243844443843A43044243E44044043543343843E43D4305D2B42443B430433201C42243843F43F44043E43444343A442430-44344143B443433438201D2B42443B430433201C41A43B43044144143F44043E43444343A44243043443B44F41C41F423201D29" class="wikigeneratedid"><span>Пример запроса (Массив &nbsp;из 2-ух записей [код ТП, Идентификатор региона] + Флаг “Тип продукта - услуги” + Флаг “Класс продукта для МПУ”)</span></h4><div class="box"><p>GET<br>?category.name=MobileConnectivity<br>&amp;marketSegment.characteristic.name=ProdOfferPurchased<br>&amp;marketSegment.characteristic.value=<strong>[0699.1.100,0397.2.153911]</strong><br>&amp;productOffering.actionAllowed=Create<br>&amp;productOffering.productSpecification.productSpecificationType.name=<strong>[Service]</strong><br>&amp;marketSegment.place.id=<strong>[100,153911]</strong><br>&amp;fields=<strong>ServiceProductClassification</strong></p><p>Channel.Id = <strong>[System_name]</strong></p></div><h5 id="H41F44043843C43544043E442432435442430" class="wikigeneratedid"><span>Пример ответа</span></h5><div class="box"><p>[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"PE0005"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Мобильный Интернет"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"href": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {<span style="color:red">"startDateTime": "2018-07-04T22:19:55.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"service"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]}<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"PE0078"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Ежемесячная плата за тариф"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"href": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {<span style="color:red">"startDateTime": "2018-07-04T22:19:55.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"service"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductCategory",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"subscription_fee"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]}<br>&nbsp;&nbsp;&nbsp;}, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID":<span style="color:red">"PE0194"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Международный и национальный роуминг"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"href": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {<span style="color:red">"startDateTime": "2018-07-04T22:19:56.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"service"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]}<br>&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</p></div><h4 id="H41F44043843C43544043743043F44043E4414302841C4304414414384324384372-44344543743043F4384414354395B43A43E43442241F2C41843443543D44243844443843A43044243E44044043543343843E43D4305D2B42443B430433201C42243843F43F44043E43444343A442430-43143B43E43A43844043E43243A438201D29" class="wikigeneratedid"><span>Пример запроса (Массив &nbsp;из 2-ух записей [код ТП, Идентификатор региона] + Флаг “Тип продукта - блокировки”)</span></h4><div class="box"><p>GET<br>?category.name=MobileConnectivity<br>&amp;marketSegment.characteristic.name=ProdOfferPurchased<br>&amp;marketSegment.characteristic.value=<strong>[0699.1.100,0397.2.153911]</strong><br>&amp;productOffering.actionAllowed=Create<br>&amp;productOffering.productSpecification.productSpecificationType.name=<strong>[Block]</strong><br>&amp;marketSegment.place.id=<strong>[100,153911]</strong></p><p>Channel.Id = <strong>[System_name]</strong></p></div><h5 id="H41F44043843C43544043E442432435442430-1" class="wikigeneratedid"><span>Пример ответа</span></h5><div class="box"><p>[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"BL0005"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Добровольная блокировка"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {"startDateTime": <span style="color:red">"2018-07-06T01:02:25.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"block"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]}<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"BL0008"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Первоначальная блокировка"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {"startDateTime":<span style="color:red">&nbsp;"2018-07-06T01:02:25.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"block"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]}<br>&nbsp;&nbsp;&nbsp;}<br>]</p></div><h5 id="H41F44043843C43544043743043F44043E4414302842143F43844143E43AMSISDN5B41043143E43D43543D442_12C41043143E43D43543D442_25D2B42443B430433201C42243843F43F44043E43444343A442430-44344143B443433438201D2B42443B430433201C42243843F43F44043E43444343A442430-43143B43E43A43844043E43243A438201D2B42443B430433201C41A43B43044144143F44043E43444343A44243043443B44F41C41F423201D29" class="wikigeneratedid"><span>Пример запроса (Список MSISDN [Абонент_1, Абонент_2] &nbsp;+ &nbsp;Флаг “Тип продукта - услуги” + &nbsp;Флаг “Тип продукта - блокировки” + Флаг “Класс продукта для МПУ”)</span></h5><div class="box"><p>GET<br>?category.name=MobileConnectivity<br>&amp;marketSegment.characteristic.name=msisdn&amp;marketSegment.characteristic.value=<strong>[79000000000,79000000001]</strong><br>&amp;productOffering.actionAllowed=Create<br>&amp;productOffering.productSpecification.productSpecificationType.name=<strong>[Service,Block]</strong><br>&amp;fields=<strong>ServiceProductClassification</strong></p><p>Channel.Id = <strong>[System_name]</strong></p></div><h5 id="H41F44043843C43544043E442432435442430-2" class="wikigeneratedid"><span>Пример ответа</span></h5><div class="box"><p>[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"PE0078"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Ежемесячная плата за тариф"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"href": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {"startDateTime": <span style="color:red">"2018-07-09T02:02:39.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"service"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductCategory",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"subscription_fee"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]}<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"PE0079"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Автоинформирование о балансе"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"href": "",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {"startDateTime": <span style="color:red">"2018-07-09T02:02:39.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"service"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]}<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"BL0005"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"Добровольная блокировка"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validFor": {"startDateTime": <span style="color:red">"2018-07-09T02:02:39.000+0000"</span>},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productSpecification": {"productSpecificationType": [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductSpecificationType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"block"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]}<br>&nbsp;&nbsp;&nbsp;}<br>]</p></div><h5 id="H41F44043843C43544043743043F44043E44143028MSISDN41043143E43D43543D442430_12B42443B430433201C42243843F43F44043E43444343A442430-44344143B443433438201D2B42443843B44C44244043F43E42344143B44343343541441441F29" class="wikigeneratedid"><span>Пример запроса (MSISDN Абонента_1 + &nbsp;Флаг “Тип продукта - услуги” + Фильтр по Услуге ДДП)</span></h5><div class="box"><p>GET<br>?category.name=MobileConnectivity<br>&amp;marketSegment.characteristic.name=msisdn&amp;marketSegment.characteristic.value=<strong>[79000000000]</strong><br>&amp;productOffering.actionAllowed=Create<br>&amp;productOffering.productSpecification.productSpecificationType.name=<strong>[Service]</strong><br>&amp;fields=CalculatePrices,FillCustomParameters&amp;productOffering.externalID=<strong>[PE0511]</strong></p><p>Channel.Id = <strong>[System_name]</strong></p></div><h5 id="H41F44043843C43544043E442432435442430-3" class="wikigeneratedid"><span>Пример ответа</span></h5><div class="box"><p>[{<br>&nbsp;&nbsp;&nbsp;"externalID": <span style="color:red">"PE0511"</span>,<br>&nbsp;&nbsp;&nbsp;"version": <span style="color:red">"6"</span>,<br>&nbsp;&nbsp;&nbsp;"name": <span style="color:red">"СуперБИТ"</span>,<br>&nbsp;&nbsp;&nbsp;"status": "ACTIVE",<br>&nbsp;&nbsp;&nbsp;"actionAllowed": ["CREATE"],<br>&nbsp;&nbsp;&nbsp;"productOfferingPrice": &nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductOfferingPrice",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unitOfMeasure": <span style="color:red">"Fact"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "ActionPrice",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dutyFreeAmount": <span style="color:red">296.610169</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"taxIncludedAmount": <span style="color:red">350</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"taxRate": <span style="color:red">53.389831</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "DiscountProdOfferPriceAlteration",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "ActionPrice.Discount",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": {"dutyFreeAmount":<span style="color:red">&nbsp;0</span>}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductOfferingPrice",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unitOfMeasure": <span style="color:red">"Day"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "AlternativePeriodicPrice",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dutyFreeAmount": <span style="color:red">8.474576</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"taxIncludedAmount":<span style="color:red">&nbsp;10</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"taxRate": <span style="color:red">1.525424</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "DiscountProdOfferPriceAlteration",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "AlternativePeriodicPrice.Discount",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": {"dutyFreeAmount": <span style="color:red">0</span>}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "ProductOfferingPrice",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"unitOfMeasure":<span style="color:red">&nbsp;"Month"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "PeriodicalPrice",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"characteristic": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "PeriodicalProductInfo.ChargeType",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "Primary"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "PeriodicalProductInfo.IsDiscrete",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "true"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "PeriodicalProductInfo.IsFirstPeriodPaid",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "false"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "PeriodicalProductInfo.IsFullOnly",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "true"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dutyFreeAmount":<span style="color:red">&nbsp;296.610169</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"taxIncludedAmount":<span style="color:red">&nbsp;350</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"taxRate": <span style="color:red">53.389831</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "DiscountProdOfferPriceAlteration",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "PeriodicalPrice.Discount",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": {"dutyFreeAmount": 0}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"validFor": &nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startDateTime": <span style="color:red">"2018-07-12T13:48:52.466+0000"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"endDateTime": <span style="color:red">"0001-01-02T21:00:00.000+0000"</span><br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;"productSpecification": {"name": <span style="color:red">"Service"</span>},<br>&nbsp;&nbsp;&nbsp;"product": [ &nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "1636d9fa-95ce-4ab0-a8a1-e3f8ea2da5cc",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productCharacteristic": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "IsActivated",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "false"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "IsBlocked",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"false"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "IsPeriodicalChargingStarted",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "false"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;}]<br>}]</p></div><h5 id="H41F44043843C43544043E44243243544243044143E44843843143A43E439" class="wikigeneratedid"><span>Пример ответа с ошибкой</span></h5><div class="box"><p>{<br>&nbsp;&nbsp;&nbsp;"errorMessage": <span style="color:red">"Channel.ID не зарегистрирован в системе"</span>,<br>&nbsp;&nbsp;&nbsp;"sourceID": <span style="color:red">"PublicApi"</span>,<br>&nbsp;&nbsp;&nbsp;"errorCode": <span style="color:red">"1004"</span><br>}</p></div><div><div><h5 id="H41F44043843C43544043E44243243544243044143E44843843143A43E439-1" class="wikigeneratedid"><span>Пример ответа с ошибкой</span></h5><div class="box"><p>{<br>&nbsp;&nbsp;&nbsp;"errorMessage": <span style="color:red">"Не найдена связка региона/ТП - номер"</span>,<br>&nbsp;&nbsp;&nbsp;"sourceID": <span style="color:red">"PublicApi"</span>,<br>&nbsp;&nbsp;&nbsp;"errorCode": <span style="color:red">"2005"</span><br>}</p></div><p><span class="wikilink"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/#Contents"><span style="color:grey">Возврат в Оглавление</span></a></span><br><br><span class="wikilink"><a href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/#Function7"><span style="color:grey">Возврат в группу Управление услугами</span></a></span></p></div></div><p>&nbsp;</p>
+          </div>
+  </div>
+</div>
+
+
+
+
+
+    <div class="clearfloats"></div>
+  </div>            <div id="xdocFooter">
+
+       <div class="doc-tags" id="xdocTags">
+        Тэги:
+            <span class="tag-wrapper"><span class="tag"><a href="https://wiki.mts.ru/bin/view/Main/Tags?do=viewTag&amp;tag=ProductOffering">ProductOffering</a></span></span>
+        </div>
+
+  <div id="xdocAuthors">
+    <div class="xdocCreation">       Создал <span class="wikilink"><a href="https://wiki.mts.ru/bin/view/XWiki/Mgshilov">Мария Шилова</a></span> 2018/07/05 08:54<br>
+          </div>
+  </div>
+</div>
+
+              <div id="xwikidata">
+
+
+
+
+
+
+
+            <div id="docextraanchors">
+  <span id="Commentsanchor">&nbsp;</span><span id="Annotationsanchor">&nbsp;</span><span id="Attachmentsanchor">&nbsp;</span><span id="Historyanchor">&nbsp;</span><span id="Informationanchor">&nbsp;</span>  </div>
+  <div id="xwikidatacontents">
+    <div class="floatcontainer" id="docExtraTabs">
+      <ul class="xwikitabbar" id="docExtrasTabsUl">
+                  <li id="Commentstab" class="active">
+                        <a id="Commentslink" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#Comments" rel="nofollow">
+              Комментарии  <span class="itemCount">(0)</span>             </a>
+          </li>
+                  <li id="Annotationstab">
+                        <a id="Annotationslink" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#Annotations" rel="nofollow">
+              Аннотации  <span class="itemCount">(0)</span>             </a>
+          </li>
+                  <li id="Attachmentstab">
+                        <a id="Attachmentslink" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#Attachments" rel="nofollow">
+              Вложенные файлы  <span class="itemCount">(0)</span>             </a>
+          </li>
+                  <li id="Historytab">
+                        <a id="Historylink" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#History" rel="nofollow">
+              История             </a>
+          </li>
+                  <li id="Informationtab">
+                        <a id="Informationlink" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#Information" rel="nofollow">
+              Информация             </a>
+          </li>
+              </ul>
+    </div>
+                <div id="docextrapanes" class="">
+              <div id="Commentspane" class=""><div id="commentscontent" class="xwikiintracontent">
+  <div id="_comments">
+  <p class="noitems">К этому документу комментариев нет</p>
+
+        <form action="https://wiki.mts.ru/bin/commentadd/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?xpage=view&amp;viewer=comments#commentform" method="post" id="AddComment">
+      <fieldset id="commentform">
+        <legend class="sr-only">Добавить комментарий</legend>
+        <div class="commentavatar">                                                              <img src="./Запрос доступных для подключения услуг и блокировок (BP.05 версия 3) - XWiki_files/ldapPhoto(1).jpeg" alt="Александр Макеев" title="Александр Макеев"></div>
+                  <label><span class="wikilink"><a href="https://wiki.mts.ru/bin/view/XWiki/admakeye">Александр Макеев</a></span> says:</label>
+          <input type="hidden" name="XWiki.XWikiComments_author" value="XWiki.admakeye">
+                        <input type="hidden" name="form_token" value="0hHxIvxOhkkY6fHr4QJ9jw">
+        <input type="hidden" name="XWiki.XWikiComments_date" value="">
+        <input type="hidden" name="XWiki.XWikiComments_replyto" value="">
+        <div class="commentcontainer">
+           <label for="XWiki.XWikiComments_comment">Комментарий</label>
+           <textarea id="XWiki.XWikiComments_comment" rows="5" cols="80" name="XWiki.XWikiComments_comment"></textarea>
+        </div>
+                <div>
+          <input type="submit" value="Добавить комментарий" class="btn btn-primary">
+          <a class="cancel btn btn-default" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/">Отмена</a>
+        </div>
+      </fieldset>
+    </form>
+    <span class="hidden"></span></div>     <div class="modal fade" id="permalinkModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <div class="modal-title">Постоянная ссылка</div>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <div class="input-group-addon"><span class="fa fa-link"></span></div>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-primary" data-dismiss="modal" value="Перейти по постоянной ссылке">
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="Отмена">
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <div class="modal-title">Удалить</div>
+        </div>
+        <div class="modal-body">
+          <div>Вы уверены, что хотите удалить этот комментарий?</div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-danger" value="Удалить" data-dismiss="modal">
+          <input type="button" class="btn btn-default" value="Отмена" data-dismiss="modal">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+              <div id="Annotationspane" class="hidden empty"></div>
+              <div id="Attachmentspane" class="hidden empty"></div>
+              <div id="Historypane" class="hidden empty"></div>
+              <div id="Informationpane" class="hidden empty"></div>
+          </div>
+                <script type="text/javascript">
+      var hashviewer = self.document.location.hash.substring(1);
+                                                var extraInit = function(){ XWiki.displayDocExtra("Comments", "commentsinline.vm", false) };
+                if (hashviewer == "Comments") {
+          var extraInit = function(){ XWiki.displayDocExtra("Comments", "commentsinline.vm", true) };
+        }
+                                if ($("Commentslink") != null) {
+          $("Commentslink").href="#Comments";
+          Event.observe($("Commentslink"), "click", function(){ XWiki.displayDocExtra("Comments", "commentsinline.vm", false); }, false);
+        }
+                                if ($("tmShowComments") != null) {
+          $("tmShowComments").href="#Comments";
+          Event.observe($("tmShowComments"), "click", function(){ XWiki.displayDocExtra("Comments", "commentsinline.vm", true); }, false);
+        }
+                                if ($("commentsshortcut") != null) {
+          $("commentsshortcut").down('a').href="#comments";
+          Event.observe($("commentsshortcut"), "click", function(){ XWiki.displayDocExtra("Comments", "commentsinline.vm", true); }, false);
+        }
+                                                                              if (hashviewer == "Annotations") {
+          var extraInit = function(){ XWiki.displayDocExtra("Annotations", "annotationsinline.vm", true) };
+        }
+                                if ($("Annotationslink") != null) {
+          $("Annotationslink").href="#Annotations";
+          Event.observe($("Annotationslink"), "click", function(){ XWiki.displayDocExtra("Annotations", "annotationsinline.vm", false); }, false);
+        }
+                                if ($("tmShowAnnotations") != null) {
+          $("tmShowAnnotations").href="#Annotations";
+          Event.observe($("tmShowAnnotations"), "click", function(){ XWiki.displayDocExtra("Annotations", "annotationsinline.vm", true); }, false);
+        }
+                                if ($("annotationsshortcut") != null) {
+          $("annotationsshortcut").down('a').href="#annotations";
+          Event.observe($("annotationsshortcut"), "click", function(){ XWiki.displayDocExtra("Annotations", "annotationsinline.vm", true); }, false);
+        }
+                                                                              if (hashviewer == "Attachments") {
+          var extraInit = function(){ XWiki.displayDocExtra("Attachments", "attachmentsinline.vm", true) };
+        }
+                                if ($("Attachmentslink") != null) {
+          $("Attachmentslink").href="#Attachments";
+          Event.observe($("Attachmentslink"), "click", function(){ XWiki.displayDocExtra("Attachments", "attachmentsinline.vm", false); }, false);
+        }
+                                if ($("tmShowAttachments") != null) {
+          $("tmShowAttachments").href="#Attachments";
+          Event.observe($("tmShowAttachments"), "click", function(){ XWiki.displayDocExtra("Attachments", "attachmentsinline.vm", true); }, false);
+        }
+                                if ($("attachmentsshortcut") != null) {
+          $("attachmentsshortcut").down('a').href="#attachments";
+          Event.observe($("attachmentsshortcut"), "click", function(){ XWiki.displayDocExtra("Attachments", "attachmentsinline.vm", true); }, false);
+        }
+                                                                              if (hashviewer == "History") {
+          var extraInit = function(){ XWiki.displayDocExtra("History", "historyinline.vm", true) };
+        }
+                                if ($("Historylink") != null) {
+          $("Historylink").href="#History";
+          Event.observe($("Historylink"), "click", function(){ XWiki.displayDocExtra("History", "historyinline.vm", false); }, false);
+        }
+                                if ($("tmShowHistory") != null) {
+          $("tmShowHistory").href="#History";
+          Event.observe($("tmShowHistory"), "click", function(){ XWiki.displayDocExtra("History", "historyinline.vm", true); }, false);
+        }
+                                if ($("historyshortcut") != null) {
+          $("historyshortcut").down('a').href="#history";
+          Event.observe($("historyshortcut"), "click", function(){ XWiki.displayDocExtra("History", "historyinline.vm", true); }, false);
+        }
+                                                                              if (hashviewer == "Information") {
+          var extraInit = function(){ XWiki.displayDocExtra("Information", "informationinline.vm", true) };
+        }
+                                if ($("Informationlink") != null) {
+          $("Informationlink").href="#Information";
+          Event.observe($("Informationlink"), "click", function(){ XWiki.displayDocExtra("Information", "informationinline.vm", false); }, false);
+        }
+                                if ($("tmShowInformation") != null) {
+          $("tmShowInformation").href="#Information";
+          Event.observe($("tmShowInformation"), "click", function(){ XWiki.displayDocExtra("Information", "informationinline.vm", true); }, false);
+        }
+                                if ($("informationshortcut") != null) {
+          $("informationshortcut").down('a').href="#information";
+          Event.observe($("informationshortcut"), "click", function(){ XWiki.displayDocExtra("Information", "informationinline.vm", true); }, false);
+        }
+                                            document.observe("dom:loaded", extraInit, false);
+    </script>
+  </div> </div>
+        </div>      </div><div id="leftPanels" class="panels left panel-width-Medium">
+      <div class=" panel expanded PanelsNavigation Navigation"><h1 class="xwikipaneltitle">Навигация</h1><div class="xwikipanelcontents">
+
+
+
+
+
+
+
+                                                                                                                                                                      <div class="xtree jstree jstree-2 jstree-xwiki jstree-xwiki-responsive" data-responsive="true" data-url="/bin/get/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/WebHome?outputSyntax=plain&amp;sheet=XWiki.DocumentTree&amp;showAttachments=false&amp;showTranslations=false&amp;exclusions=document%3Axwiki%3ASandbox.WebHome&amp;exclusions=document%3Axwiki%3AScheduler.WebHome&amp;exclusions=document%3Axwiki%3AHelp.WebHome&amp;exclusions=document%3Axwiki%3AMenu.WebHome&amp;exclusions=document%3Axwiki%3AXWiki.WebHome" data-draganddrop="false" data-contextmenu="false" data-icons="false" data-edges="false" data-checkboxes="false" data-opento="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" data-finder="false" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="document:xwiki:Ideas.WebHome" aria-busy="false"><ul class="jstree-container-ul jstree-children jstree-no-dots jstree-no-icons" role="group"><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:Ideas.WebHome_anchor" aria-expanded="false" id="document:xwiki:Ideas.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/Ideas/" tabindex="-1" id="document:xwiki:Ideas.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Ideas</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:0 Знания.WebHome_anchor" aria-expanded="false" id="document:xwiki:0 Знания.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/0%20%D0%97%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F/" tabindex="-1" id="document:xwiki:0 Знания.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>0 Знания</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:1 Системы.WebHome_anchor" aria-expanded="false" id="document:xwiki:1 Системы.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/1%20%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B/" tabindex="-1" id="document:xwiki:1 Системы.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>1 Системы</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:2 Проекты.WebHome_anchor" aria-expanded="false" id="document:xwiki:2 Проекты.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/2%20%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%8B/" tabindex="-1" id="document:xwiki:2 Проекты.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>2 Проекты</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:3 Продукты.WebHome_anchor" aria-expanded="true" id="document:xwiki:3 Продукты.WebHome" class="jstree-node  jstree-open" aria-busy="false"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/" tabindex="-1" id="document:xwiki:3 Продукты.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>3 Продукты</a><ul role="group" class="jstree-children"><li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="document:xwiki:3 Продукты.Public API.WebHome_anchor" aria-expanded="true" id="document:xwiki:3 Продукты.Public API.WebHome" class="jstree-node  jstree-open" aria-busy="false"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Public API</a><ul role="group" class="jstree-children"><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.API.WebHome_anchor" aria-expanded="true" id="document:xwiki:3 Продукты.Public API.API.WebHome" class="jstree-node  jstree-open"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>API</a><ul role="group" class="jstree-children"><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Cashback.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Cashback.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/Cashback/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Cashback.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Cashback</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.FinGate.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.FinGate.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/FinGate/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.FinGate.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>FinGate</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Real-Time Marketing.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Real-Time Marketing.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/Real-Time%20Marketing/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Real-Time Marketing.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Real-Time Marketing</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.WFM.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.WFM.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/WFM/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.WFM.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>WFM</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Бонусы.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Бонусы.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%91%D0%BE%D0%BD%D1%83%D1%81%D1%8B/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Бонусы.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Бонусы</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Обслуживание и продажи.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Обслуживание и продажи.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%9E%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D0%B8/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Обслуживание и продажи.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Обслуживание и продажи</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Платежи.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Платежи.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%9F%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B8/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Платежи.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Платежи</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Поиск данных.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Поиск данных.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Поиск данных.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Поиск данных</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Предоставление общей информации об абоненте.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Предоставление общей информации об абоненте.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%9F%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%D0%B1%D1%89%D0%B5%D0%B9%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BE%D0%B1%20%D0%B0%D0%B1%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B5/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Предоставление общей информации об абоненте.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Предоставление общей информации абоненту</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Предоставление финансовой информации абоненту.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Предоставление финансовой информации абоненту.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%9F%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%84%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B0%D0%B1%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%83/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Предоставление финансовой информации абоненту.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Предоставление финансовой информации абоненту</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Свой круг.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Свой круг.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A1%D0%B2%D0%BE%D0%B9%20%D0%BA%D1%80%D1%83%D0%B3/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Свой круг.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Свой круг</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Сегментация абонентов.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Сегментация абонентов.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A1%D0%B5%D0%B3%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B0%D0%B1%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Сегментация абонентов.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Сегментация абонентов</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Сервисное обслуживание.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Сервисное обслуживание.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BD%D0%BE%D0%B5%20%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Сервисное обслуживание.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Сервисное обслуживание</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление номерами.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Управление номерами.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление номерами.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Управление номерами</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление подписками.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.API.Управление подписками.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%D0%B8/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление подписками.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Управление подписками</a></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.WebHome_anchor" aria-expanded="true" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.WebHome" class="jstree-node  jstree-open" aria-busy="false"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Управление услугами</a><ul role="group" class="jstree-children"><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация ДУУ (BP\.13 версия 2\.2).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация ДУУ (BP\.13 версия 2\.2).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D1%8F%20%D0%94%D0%A3%D0%A3%20%28BP.13%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%202.2%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация ДУУ (BP\.13 версия 2\.2).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Валидация ДУУ (BP.13 версия 2.2)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация ДУУ (BP\.13 версия 3 ).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация ДУУ (BP\.13 версия 3 ).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D1%8F%20%D0%94%D0%A3%D0%A3%20%28BP.13%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%20%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация ДУУ (BP\.13 версия 3 ).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Валидация ДУУ (BP.13 версия 3 )</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация принудительной переинициализации услуги на новый срок (BP\.45).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация принудительной переинициализации услуги на новый срок (BP\.45).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BD%D1%83%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B8%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D0%BD%D0%B0%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D1%80%D0%BE%D0%BA%20%28BP.45%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Валидация принудительной переинициализации услуги на новый срок (BP\.45).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Валидация принудительной переинициализации услуги на новый срок (BP.45)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 1).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 1).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D0%9F%D0%9E%20%28BP.06%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%201%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 1).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Добавление-удаление услуг и блокировок на ПО (BP.06 версия 1)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 2\.2).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 2\.2).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D0%9F%D0%9E%20%28BP.06%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%202.2%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 2\.2).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Добавление-удаление услуг и блокировок на ПО (BP.06 версия 2.2)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 3).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 3).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D0%9F%D0%9E%20%28BP.06%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Добавление-удаление услуг и блокировок на ПО (BP\.06 версия 3).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Добавление-удаление услуг и блокировок на ПО (BP.06 версия 3)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 2\.2\.).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 2\.2\.).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%202.2.%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 2\.2\.).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Запрос доступных для подключения услуг и блокировок (BP.05 версия 2.2.)</a></li><li role="treeitem" aria-selected="true" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor jstree-clicked" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос доступных для подключения услуг и блокировок (BP\.05 версия 3).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Запрос доступных для подключения услуг и блокировок (BP.05 версия 3)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос на добавление/удаление data-услуги (BP\.68-69).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос на добавление/удаление data-услуги (BP\.68-69).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%2F%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20data-%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%28BP.68-69%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос на добавление/удаление data-услуги (BP\.68-69).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Запрос на добавление/удаление data-услуги (BP.68-69)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос подключенных услуг и блокировок (BP\.02 версия 2\.2).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос подключенных услуг и блокировок (BP\.02 версия 2\.2).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.02%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%202.2%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос подключенных услуг и блокировок (BP\.02 версия 2\.2).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Запрос подключенных услуг и блокировок (BP.02 версия 2.2)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос подключенных услуг и блокировок (BP\.02 версия 3).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос подключенных услуг и блокировок (BP\.02 версия 3).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.02%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Запрос подключенных услуг и блокировок (BP\.02 версия 3).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Запрос подключенных услуг и блокировок (BP.02 версия 3)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Получение данных об установленной переадресации вызовов.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Получение данных об установленной переадресации вызовов.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BE%D0%B1%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%BE%D0%B2/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Получение данных об установленной переадресации вызовов.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Получение данных об установленной переадресации вызовов (BP.57)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Принудительная переинициализация услуги на новый срок (BP\.56).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Принудительная переинициализация услуги на новый срок (BP\.56).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%9F%D1%80%D0%B8%D0%BD%D1%83%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B8%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D0%BD%D0%B0%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D1%80%D0%BE%D0%BA%20%28BP.56%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Принудительная переинициализация услуги на новый срок (BP\.56).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Принудительная переинициализация услуги на новый срок (BP.56)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Просмотр состояния счетчиков (BP\.09 версия 2\.2).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Просмотр состояния счетчиков (BP\.09 версия 2\.2).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%9F%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%20%D1%81%D1%87%D0%B5%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%28BP.09%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%202.2%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Просмотр состояния счетчиков (BP\.09 версия 2\.2).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Просмотр состояния счетчиков (BP.09 версия 2.2)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Просмотр состояния счётчиков (BP\.09 версия 3).WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Просмотр состояния счётчиков (BP\.09 версия 3).WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%9F%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%20%D1%81%D1%87%D1%91%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%28BP.09%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Просмотр состояния счётчиков (BP\.09 версия 3).WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Просмотр состояния счётчиков (BP.09 версия 3)</a></li><li role="treeitem" aria-selected="false" aria-level="5" aria-labelledby="document:xwiki:3 Продукты.Public API.API.Управление услугами.Управление установленной переадресацией вызовов.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Управление установленной переадресацией вызовов.WebHome" class="jstree-node  jstree-leaf jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D0%B8%D0%B5%D0%B9%20%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%BE%D0%B2/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.API.Управление услугами.Управление установленной переадресацией вызовов.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Управление переадресацией вызовов (BP.58)</a></li></ul></li><li role="treeitem" aria-selected="false" aria-level="4" aria-labelledby="pagination:document:xwiki:3 Продукты.Public API.API.WebHome_anchor" id="pagination:document:xwiki:3 Продукты.Public API.API.WebHome" class="jstree-node  jstree-leaf jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#" tabindex="-1" id="pagination:document:xwiki:3 Продукты.Public API.API.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-eye jstree-themeicon-custom" role="presentation"></i>3 more ...</a></li></ul></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.AP для B2B.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.AP для B2B.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/AP%20%D0%B4%D0%BB%D1%8F%20B2B/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.AP для B2B.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>API для B2B</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.FAQ.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.FAQ.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/FAQ/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.FAQ.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>FAQ</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.WSO2Api .WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.WSO2Api .WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/WSO2Api%20/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.WSO2Api .WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>WSO2 API Manager</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.Документация.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.Документация.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.Документация.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Документация</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.Инструкция по заведению МИ.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.Инструкция по заведению МИ.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F%20%D0%BF%D0%BE%20%D0%B7%D0%B0%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8E%20%D0%9C%D0%98/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.Инструкция по заведению МИ.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Инструкция по заведению МИ</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.Подключение к Public API.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.Подключение к Public API.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%20Public%20API/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.Подключение к Public API.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Подключение к Public API</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.Публикация API системы на API Manager.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.Публикация API системы на API Manager.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%9F%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20API%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B%20%D0%BD%D0%B0%20API%20Manager/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.Публикация API системы на API Manager.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Публикация API системы на API Manager</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.Решение инцидентов.WebHome_anchor" aria-expanded="false" id="document:xwiki:3 Продукты.Public API.Решение инцидентов.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%86%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.Решение инцидентов.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Решение инцидентов</a></li><li role="treeitem" aria-selected="false" aria-level="3" aria-labelledby="document:xwiki:3 Продукты.Public API.Список методов.WebHome_anchor" id="document:xwiki:3 Продукты.Public API.Список методов.WebHome" class="jstree-node  jstree-leaf jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2/" tabindex="-1" id="document:xwiki:3 Продукты.Public API.Список методов.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Список Интерфейсов</a></li></ul></li><li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="pagination:document:xwiki:3 Продукты.WebHome_anchor" id="pagination:document:xwiki:3 Продукты.WebHome" class="jstree-node  jstree-leaf jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#" tabindex="-1" id="pagination:document:xwiki:3 Продукты.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-eye jstree-themeicon-custom" role="presentation"></i>28 more ...</a></li></ul></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:4 Корпоративная архитектура.WebHome_anchor" aria-expanded="false" id="document:xwiki:4 Корпоративная архитектура.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/4%20%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0/" tabindex="-1" id="document:xwiki:4 Корпоративная архитектура.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>4 Корпоративная архитектура</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:5 Базы знаний знаний наших специалистов.WebHome_anchor" aria-expanded="false" id="document:xwiki:5 Базы знаний знаний наших специалистов.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/5%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%BD%D0%B0%D1%88%D0%B8%D1%85%20%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2/" tabindex="-1" id="document:xwiki:5 Базы знаний знаний наших специалистов.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>5 Базы знаний наших специалистов</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:Blog.WebHome_anchor" aria-expanded="false" id="document:xwiki:Blog.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/Blog/" tabindex="-1" id="document:xwiki:Blog.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Blog</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:FAQ.WebHome_anchor" aria-expanded="false" id="document:xwiki:FAQ.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/FAQ/" tabindex="-1" id="document:xwiki:FAQ.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>FAQ</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:Main.WebHome_anchor" id="document:xwiki:Main.WebHome" class="jstree-node  jstree-leaf"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/Main/" tabindex="-1" id="document:xwiki:Main.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>Home</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:Sandbox - test.WebHome_anchor" aria-expanded="false" id="document:xwiki:Sandbox - test.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/Sandbox%20-%20test/" tabindex="-1" id="document:xwiki:Sandbox - test.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>LanBilling_Просмотр корректировок</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="document:xwiki:test showhide.WebHome_anchor" aria-expanded="false" id="document:xwiki:test showhide.WebHome" class="jstree-node  jstree-closed"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/test%20showhide/" tabindex="-1" id="document:xwiki:test showhide.WebHome_anchor"><i class="jstree-icon jstree-themeicon fa fa-file-o jstree-themeicon-custom" role="presentation"></i>test showhide</a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="pagination:wiki:xwiki_anchor" id="pagination:wiki:xwiki" class="jstree-node  jstree-leaf jstree-last"><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://wiki.mts.ru/bin/view/3%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/Public%20API/API/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%20%D0%B8%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20%28BP.05%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%203%29/#" tabindex="-1" id="pagination:wiki:xwiki_anchor"><i class="jstree-icon jstree-themeicon fa fa-eye jstree-themeicon-custom" role="presentation"></i>5 more ...</a></li></ul></div></div></div>
+  </div>
+
+  </div>
+<div class="clearfloats"></div>
+  </div></div><div id="footerglobal">
+  <div id="xwikilicence"></div>
+            <div id="xwikiplatformversion">
+                    <a href="http://extensions.xwiki.org/?id=org.xwiki.platform:xwiki-platform-distribution-war:10.9:::/xwiki-commons-pom/xwiki-platform/xwiki-platform-distribution/xwiki-platform-distribution-war">
+                XWiki 10.9
+              </a>
+          </div>
+  </div>
+
+</div></div>
+<div class="drawer-overlay-upper drawer-toggle"></div></body></html>
